@@ -1,0 +1,20 @@
+/*
+Clousure in js is simply a function where it is always returned from another
+function.
+Clousure has access to three scopes ->
+its own scope, parent function scope and global scope.
+
+*/
+
+
+function clousureExample() {
+  var a = 10;
+  var returnFunction = function(x) {
+    console.log("inside clousre and value of outer variable is",a);
+    return a + x;
+  }
+return returnFunction;
+}
+var b = clousureExample();
+console.log(b(12));
+console.log(b(1));
