@@ -1,0 +1,15 @@
+/* Currying is a process in functional programming in which we can transform a function with multiple arguments into a sequence of nesting functions. It returns a new function that expects the next argument inline.
+
+It keeps returning a new function (that expects the current argument, like we said earlier) until all the arguments are exhausted. The arguments are kept "alive"(via closure) and all are used in execution when the final function in the currying chain is returned and executed.*/
+
+function curryingExample(x){
+  var sum = x;
+  return function returnFun(y){
+    if(arguments.length){
+      sum = sum + y;
+      return returnFun;
+    }
+    return sum;
+  }
+}
+console.log(curryingExample(1)(3)(2)());
